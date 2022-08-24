@@ -80,8 +80,8 @@ func AuthenticateRequest(request *http.Request) *errors.RestErr {
 		return err
 	}
 
-	request.Header.Add(headerXClientId, string(at.ClientId))
-	request.Header.Add(headerXCallerId, string(at.UserId))
+	request.Header.Add(headerXClientId, fmt.Sprintf("%v", at.ClientId))
+	request.Header.Add(headerXCallerId, fmt.Sprintf("%v", at.UserId))
 
 	return nil
 }
